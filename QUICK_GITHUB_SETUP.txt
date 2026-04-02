@@ -1,0 +1,60 @@
+📝 GITHUB REPO SETUP - VERY QUICK
+
+═══════════════════════════════════════════════════════════════════
+
+✅ Local git is ready with 63 files committed
+
+═══════════════════════════════════════════════════════════════════
+
+🔴 STEP 1: CREATE REPO ON GITHUB (1 minute)
+
+A browser tab to GitHub was opened already at:
+  https://github.com/new
+
+Fill in this form:
+┌─────────────────────────────────────────────────────────────┐
+│ Repository name:                                            │
+│ ► interview-performance-system                              │
+│                                                             │
+│ Description:                                                │
+│ ► AI-powered interview recording and analysis system        │
+│                                                             │
+│ Visibility:                                                 │
+│ ✓ Public                                                    │
+│   □ Private                                                 │
+│                                                             │
+│ ☐ Initialize with README (DON'T CHECK - we have one)       │
+│ ☐ Add .gitignore (DON'T CHECK - we have one)              │
+│ ☐ Choose license (OPTIONAL)                                │
+│                                                             │
+│ ► [Create repository] button                               │
+└─────────────────────────────────────────────────────────────┘
+
+Wait for: "Quick setup — if you've done this kind of thing before"
+
+═══════════════════════════════════════════════════════════════════
+
+✅ STEP 2: GET YOUR REPO URL and RUN THESE COMMANDS
+
+After creating, GitHub shows you commands to run.
+
+In your Terminal/PowerShell, RUN:
+
+  git remote add origin https://github.com/VEER2004/interview-performance-system.git
+  git branch -M main
+  git push -u origin main
+
+(Replace VEER2004 with your username if needed - GitHub will show exact URL)
+
+═══════════════════════════════════════════════════════════════════
+
+✅ DONE!
+
+Your code is now on GitHub!
+Your repository: https://github.com/VEER2004/interview-performance-system
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 NEXT: Deploy to Streamlit Cloud
+
+After confirming push succeeded, we'll deploy to Streamlit Cloud
