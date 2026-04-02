@@ -1,0 +1,13 @@
+{
+  "name": "Interview Performance Theme",
+  "dataColors": [
+    "#4F46E5",
+    "#22C55E",
+    "#F59E0B",
+    "#EF4444",
+    "#06B6D4"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#111827",
+  "tableAccent": "#4F46E5"
+}

@@ -1,0 +1,28 @@
+Performance Category =
+SWITCH(
+    TRUE(),
+    'interview_powerbi_source'[Performance_Score_Proxy] >= 20, "Excellent",
+    'interview_powerbi_source'[Performance_Score_Proxy] >= 12, "Good",
+    "Needs Improvement"
+)
+
+Avg Performance Score = AVERAGE('interview_powerbi_source'[Performance_Score_Proxy])
+
+Avg Confidence Score = AVERAGE('interview_powerbi_source'[Confidence_Score])
+
+Avg Interviewer Rating = AVERAGE('interview_powerbi_source'[Interviewer_Rating])
+
+Offer Rate =
+DIVIDE(
+    CALCULATE(COUNTROWS('interview_powerbi_source'), 'interview_powerbi_source'[Offer_Extended] = "Yes"),
+    COUNTROWS('interview_powerbi_source')
+)
+
+Excellent Count =
+CALCULATE(COUNTROWS('interview_powerbi_source'), 'interview_powerbi_source'[Performance_Score_Proxy] >= 20)
+
+Good Count =
+CALCULATE(COUNTROWS('interview_powerbi_source'), 'interview_powerbi_source'[Performance_Score_Proxy] >= 12 && 'interview_powerbi_source'[Performance_Score_Proxy] < 20)
+
+Needs Improvement Count =
+CALCULATE(COUNTROWS('interview_powerbi_source'), 'interview_powerbi_source'[Performance_Score_Proxy] < 12)

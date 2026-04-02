@@ -1,0 +1,5 @@
+- Best model: Linear Regression with R²=0.9925.
+- Average proxy score: 16.09 / 30.
+- Category split: {'Good': 1574, 'Excellent': 225, 'Needs Improvement': 201}.
+- Top positive drivers by correlation with score: Confidence_Score (0.40), Coding_Test_Score (0.40), Technical_Questions_Answered (0.38), Response_Relevance_Score (0.37), Interviewer_Rating (0.29)
+- Largest negative driver: Filler_Words_Used (negative relationship in engineered score).

@@ -1,0 +1,12 @@
+{
+  "rows": 2000,
+  "columns": 32,
+  "score_mean": 16.094150000000003,
+  "score_min": 5.93,
+  "score_max": 26.42,
+  "category_counts": {
+    "Good": 1574,
+    "Excellent": 225,
+    "Needs Improvement": 201
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "best_model": "Linear Regression",
+  "holdout": {
+    "mae": 0.2243716430003405,
+    "rmse": 0.27550482583871455,
+    "r2": 0.9924701796127028
+  },
+  "all_models": [
+    {
+      "model": "Linear Regression",
+      "mae": 0.2243716430003405,
+      "rmse": 0.27550482583871455,
+      "r2": 0.9924701796127028
+    },
+    {
+      "model": "Random Forest Regressor",
+      "mae": 1.3073830378149096,
+      "rmse": 1.6440012435860627,
+      "r2": 0.7318792168181709
+    },
+    {
+      "model": "AdaBoost Regressor",
+      "mae": 1.5728233422979547,
+      "rmse": 1.9778976337870027,
+      "r2": 0.6119087799124571
+    },
+    {
+      "model": "Gradient Boosting Regressor",
+      "mae": 0.7337330347269534,
+      "rmse": 0.9362620893154573,
+      "r2": 0.9130396912876393
+    }
+  ],
+  "train_rows": 1600,
+  "test_rows": 400,
+  "feature_columns": [
+    "Age",
+    "Gender",
+    "Education_Level",
+    "Position_Applied",
+    "Industry",
+    "Interview_Round",
+    "Interview_Mode",
+    "Duration_Minutes",
+    "Camera_On",
+    "Microphone_Clarity",
+    "Network_Stability_Score",
+    "Technical_Questions_Answered",
+    "Behavioral_Questions_Answered",
+    "Coding_Test_Score",
+    "Eye_Contact_Score",
+    "Body_Language_Score",
+    "Speech_Speed_WPM",
+    "Filler_Words_Used",
+    "Confidence_Score",
+    "Response_Relevance_Score",
+    "Interviewer_Rating",
+    "Background_Noise_Level",
+    "Follow_Up_Questions_Asked",
+    "Dressing_Appropriateness",
+    "Time_Management_Score"
+  ]
+}

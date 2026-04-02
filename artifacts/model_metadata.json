@@ -1,0 +1,72 @@
+{
+  "best_model": "Linear Regression",
+  "feature_columns": [
+    "Age",
+    "Gender",
+    "Education_Level",
+    "Position_Applied",
+    "Industry",
+    "Interview_Round",
+    "Interview_Mode",
+    "Duration_Minutes",
+    "Camera_On",
+    "Microphone_Clarity",
+    "Network_Stability_Score",
+    "Technical_Questions_Answered",
+    "Behavioral_Questions_Answered",
+    "Coding_Test_Score",
+    "Eye_Contact_Score",
+    "Body_Language_Score",
+    "Speech_Speed_WPM",
+    "Filler_Words_Used",
+    "Confidence_Score",
+    "Response_Relevance_Score",
+    "Interviewer_Rating",
+    "Background_Noise_Level",
+    "Follow_Up_Questions_Asked",
+    "Dressing_Appropriateness",
+    "Time_Management_Score"
+  ],
+  "target_name": "Performance_Score_Proxy",
+  "category_thresholds": {
+    "Needs Improvement": [
+      0,
+      12
+    ],
+    "Good": [
+      12,
+      20
+    ],
+    "Excellent": [
+      20,
+      30
+    ]
+  },
+  "expected_input_schema": {
+    "Age": "int64",
+    "Gender": "str",
+    "Education_Level": "str",
+    "Position_Applied": "str",
+    "Industry": "str",
+    "Interview_Round": "str",
+    "Interview_Mode": "str",
+    "Duration_Minutes": "int64",
+    "Camera_On": "str",
+    "Microphone_Clarity": "str",
+    "Network_Stability_Score": "float64",
+    "Technical_Questions_Answered": "int64",
+    "Behavioral_Questions_Answered": "int64",
+    "Coding_Test_Score": "int64",
+    "Eye_Contact_Score": "int64",
+    "Body_Language_Score": "int64",
+    "Speech_Speed_WPM": "int64",
+    "Filler_Words_Used": "int64",
+    "Confidence_Score": "int64",
+    "Response_Relevance_Score": "int64",
+    "Interviewer_Rating": "float64",
+    "Background_Noise_Level": "str",
+    "Follow_Up_Questions_Asked": "int64",
+    "Dressing_Appropriateness": "str",
+    "Time_Management_Score": "int64"
+  }
+}
