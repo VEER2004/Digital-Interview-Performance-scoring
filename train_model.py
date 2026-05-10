@@ -7,7 +7,7 @@ import os
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor, VotingRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 def main():
@@ -49,11 +49,17 @@ def main():
         "Linear Regression": LinearRegression(),
         "Random Forest Regressor": RandomForestRegressor(random_state=42),
         "Ada Boost Regressor": AdaBoostRegressor(random_state=42),
-        "Gradient Boosting Regressor": GradientBoostingRegressor(random_state=42)
+        "Gradient Boosting Regressor": GradientBoostingRegressor(random_state=42),
+        "Ensemble (Voting)": VotingRegressor(estimators=[
+            ('lr', LinearRegression()),
+            ('rf', RandomForestRegressor(random_state=42)),
+            ('gb', GradientBoostingRegressor(random_state=42))
+        ])
     }
     
-    best_model_name = "Linear Regression"  # explicitly selected as per requirement
+    best_model_name = None
     best_model = None
+    best_r2 = -float('inf')
     
     print("\nEvaluating Models:")
     for name, model in models.items():
@@ -66,8 +72,12 @@ def main():
         
         print(f"[{name}] MAE: {mae:.2f}, RMSE: {rmse:.2f}, R2: {r2:.2f}")
         
-        if name == best_model_name:
+        if r2 > best_r2:
+            best_r2 = r2
+            best_model_name = name
             best_model = model
+            
+    print(f"\nBest Model Selected: {best_model_name} with R2: {best_r2:.2f}")
             
     # 4. Model Saving
     if best_model is not None:

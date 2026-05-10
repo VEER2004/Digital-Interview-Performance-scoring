@@ -1,5 +1,10 @@
 # Digital Interview Performance Scoring System
 
+## Abstract
+This project uses machine learning to evaluate candidate performance in digital interviews by analyzing facial expressions, tone, body language, and speech quality. Computer vision models extract visual cues such as eye contact, confidence level, and engagement. NLP techniques assess verbal clarity, sentiment, and communication effectiveness. The system produces a performance score that helps HR teams make data-driven hiring decisions. This approach enhances fairness, reduces manual bias, and supports scalable remote recruitment.
+
+---
+
 This project is an AI-based system that predicts and scores candidate interview performance using structured interview metrics, developed in Python and Streamlit.
 
 ## Setup Instructions
@@ -17,7 +22,7 @@ This project is an AI-based system that predicts and scores candidate interview 
    ```
 
 3. **Train the Model**
-   Run the model training script to clean the data, select features, and train a Linear Regression model.
+   Run the model training script to clean the data, select features, evaluate multiple algorithms, and train an Ensemble (Voting) Regression model.
    ```bash
    python train_model.py
    ```
@@ -30,11 +35,13 @@ This project is an AI-based system that predicts and scores candidate interview 
    ```
 
 ## Features
-The web app is categorized into four tabs:
+The web app is categorized into six tabs:
 - **Candidate Info**: Age, Education Score
 - **Interview Logistics**: Duration, Network Stability, Round Score
 - **Technical & Behavioral**: Technical Questions Answered, Coding Test Score, Behavioural Questions Answered
 - **Soft Skills**: Eye Contact Score, Confidence Score, Speech Speed (WPM), Filler Words Used, Time Management Score, Interviewer Rating
+- **Advanced Analytics**: Live execution of NLP sentiment analysis (TextBlob), Facial Emotion Detection (OpenCV), and Voice Tone Stability Analysis (SciPy).
+- **Live Proctoring**: Real-time WebRTC camera feed to detect and track faces, ensuring only one candidate is present, and browser-visibility listeners to detect tab-switching/cheating.
 
 ## Output Logic
 The model predicts a regression score which is then categorized as:

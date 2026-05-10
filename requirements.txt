@@ -5,3 +5,6 @@ joblib
 streamlit
 matplotlib
 seaborn
+textblob
+opencv-python
+scipy
