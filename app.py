@@ -3,6 +3,34 @@ import pandas as pd
 import joblib
 import numpy as np
 import os
+import cv2
+import av
+import queue
+import threading
+import speech_recognition as sr
+import scipy.io.wavfile as wav
+import plotly.graph_objects as go
+import tempfile
+from textblob import TextBlob
+from PIL import Image
+from streamlit_webrtc import webrtc_streamer
+from moviepy import VideoFileClip
+import streamlit.components.v1 as components
+import nltk
+
+# Ensure NLTK data is downloaded for TextBlob
+@st.cache_resource
+def download_nltk_data():
+    try:
+        nltk.download('punkt')
+        nltk.download('averaged_perceptron_tagger')
+        nltk.download('brown')
+        nltk.download('wordnet')
+        nltk.download('punkt_tab')
+    except Exception as e:
+        st.error(f"Error downloading NLTK data: {e}")
+
+download_nltk_data()
 
 st.set_page_config(page_title="Interview Performance Scoring", layout="wide", page_icon="🎯")
 
@@ -175,7 +203,6 @@ with tab5:
     st.subheader("NLP Analysis of Spoken Answers")
     transcript = st.text_area("Paste Interview Transcript here:")
     if transcript:
-        from textblob import TextBlob
         sentiment = TextBlob(transcript).sentiment.polarity
         st.write(f"**Calculated Sentiment Score:** {sentiment:.2f} (-1 to 1)")
         # Note: We don't overwrite input_data here to maintain compatibility with the legacy model,
@@ -184,10 +211,6 @@ with tab5:
     st.subheader("Facial Emotion (OpenCV)")
     camera_photo = st.camera_input("Take a photo to analyze facial expression")
     if camera_photo:
-        import cv2
-        from PIL import Image
-        import numpy as np
-        
         # Load Haar cascades
         face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
         smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
@@ -221,7 +244,6 @@ with tab6:
     st.warning("Ensure your camera and microphone are enabled. Do not switch tabs.")
     
     # Tab visibility / Screen sharing alert script
-    import streamlit.components.v1 as components
     components.html("""
     <script>
     // Listen to the parent window since components run in an iframe
@@ -233,9 +255,6 @@ with tab6:
     </script>
     """, height=0, width=0)
     
-    from streamlit_webrtc import webrtc_streamer
-    import av
-    import cv2
     
     def video_frame_callback(frame):
         img = frame.to_ndarray(format="bgr24")
@@ -255,11 +274,6 @@ with tab6:
                 
         return av.VideoFrame.from_ndarray(img, format="bgr24")
         
-    # Audio Processor for Live Transcription
-    import queue
-    import speech_recognition as sr
-    import threading
-
     class AudioProcessor:
         def __init__(self):
             self.audio_frames = []
@@ -303,7 +317,6 @@ with tab6:
                     webrtc_ctx.audio_processor.audio_frames = []
                 
                 if len(frames) > 0:
-                    import scipy.io.wavfile as wav
                     # Concatenate audio frames
                     audio_data = np.concatenate(frames)
                     if len(audio_data.shape) > 1:
@@ -315,7 +328,6 @@ with tab6:
                     wav.write(temp_wav, 48000, audio_data)
                     
                     # Transcribe
-                    recognizer = sr.Recognizer()
                     try:
                         with sr.AudioFile(temp_wav) as source:
                             audio_content = recognizer.record(source)
@@ -370,14 +382,6 @@ with tab7:
     video_file = st.file_uploader("Upload Interview Video (MP4, AVI, MOV)", type=["mp4", "avi", "mov"])
 
     if video_file is not None:
-        import tempfile, os
-        import cv2
-        from textblob import TextBlob
-        import speech_recognition as sr
-        import scipy.io.wavfile as wav
-        import plotly.graph_objects as go
-        from moviepy import VideoFileClip
-
         # Save uploaded video to a temp file
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp_video:
             tmp_video.write(video_file.read())
@@ -567,8 +571,6 @@ if st.button("Predict Performance", type="primary"):
     # Display Result Dashboard
     st.subheader("📊 Performance Dashboard (Power BI Style)")
     st.markdown(f"### Performance Category: <span style='color:{color}'>{category}</span>", unsafe_allow_html=True)
-    
-    import plotly.graph_objects as go
     
     col1, col2 = st.columns(2)
     with col1:

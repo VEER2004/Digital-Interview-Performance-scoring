@@ -6,6 +6,12 @@ streamlit
 matplotlib
 seaborn
 textblob
-opencv-python
+opencv-python-headless
 scipy
 plotly
+Pillow
+streamlit-webrtc
+av
+SpeechRecognition
+moviepy
+nltk

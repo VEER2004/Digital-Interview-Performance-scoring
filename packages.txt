@@ -1,0 +1,11 @@
+ffmpeg
+freeglut3-dev
+libgtk2.0-dev
+libgl1-mesa-glx
+libavcodec-dev
+libavformat-dev
+libavdevice-dev
+libavutil-dev
+libswscale-dev
+libswresample-dev
+libavfilter-dev
