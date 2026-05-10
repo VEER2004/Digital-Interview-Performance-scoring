@@ -1,0 +1,138 @@
+Problem Definition & Objective
+:
+Objective:
+ 
+To develop an AI-based system that predicts and scores candidate interview performance using structured interview metrics.
+Problem Type:
+Supervised Machine Learning
+Regression Problem (Predicting continuous performance score)
+Business Need:
+Reduce human bias
+Standardize evaluation
+Improve hiring efficiency
+Provide scalable assessment system
+Data Collection
+Dataset Used:
+virtual_interview_with_target.csv
+Link: 
+https://www.kaggle.com/datasets/maham9/virtual-interview-performance-dataset
+Features Include:
+Age
+Education Score
+Technical Questions Answered
+Coding Test Score
+Behavioural
+ Questions Answered
+Eye Contact Score
+Confidence Score
+Speech Speed (WPM)
+Filler Words Used
+Interviewer Rating
+Time Management Score
+Round Score
+Duration
+Network Stability
+Target Variable:
+Final Interview Performance Score
+Data Preprocessing
+:
+Steps Performed:
+Checked missing values
+Removed duplicates
+Feature consistency check
+Converted data types
+Correlation analysis
+Feature selection
+ 
+Optional Enhancements:
+StandardScaler
+Outlier detection
+Feature engineering (e.g., Communication Index)
+Exploratory Data Analysis (EDA)
+:
+Analysis Done:
+Distribution plots
+Correlation heatmap
+Feature importance insight
+Relationship between technical score & final performance
+Impact of filler words on performance
+Insights Example:
+Higher coding score → higher final score
+More filler words → lower confidence score
+Confidence strongly correlates with interviewer rating
+Model Selection & Training
+:
+Algorithms Tested:
+Linear Regression
+Random Forest Regressor
+Ada Boost Regressor
+Gradient Bosting Regressor
+Model Evaluation Metrics:
+MAE (Mean Absolute Error)
+RMSE (Root Mean Square Error)
+R² Score
+Best Model:
+Linear Regression
+Model Saving
+:
+After training:
+joblib.dump
+(
+best_model
+, "
+best_interview_performance_model.pkl
+")
+This model is later loaded in 
+Streamlit
+ app.
+Web App Development (Deployment Layer)
+:
+Framework Used:
+Streamlit
+ App Features:
+Structured Tabs:
+Candidate Info
+Interview Logistics
+Technical & 
+Behavioral
+Soft Skills
+Real-time Prediction
+Performance Category Output:
+Excellent
+Good
+Needs Improvement
+Performance Categorization Logic
+:
+After prediction:
+Score ≥ 20 → Excellent
+Score ≥ 12 → Good
+Else → Needs Improvement
+This converts regression output into human-readable categories.
+System Architecture Overview
+:
+Data Collection
+↓
+Data Cleaning & EDA
+↓
+Feature Selection
+↓
+Model Training
+↓
+Model Evaluation
+↓
+Model Saving (.
+pkl
+)
+↓
+Streamlit
+ App
+↓
+User Input
+↓
+Performance Score Prediction
+Future Improvements:
+Improvements:
+Add NLP analysis of spoken answers
+Use facial emotion detection (OpenCV)
+Add voice tone analysis
+Use ensemble models
