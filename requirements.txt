@@ -16,3 +16,6 @@ SpeechRecognition
 moviepy
 nltk
 tornado==6.3.3
+imageio-ffmpeg
+imageio
+ffmpeg-python
