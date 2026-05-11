@@ -28,3 +28,7 @@ temp_transcript.wav
 # OS
 .DS_Store
 Thumbs.db
+
+# Office Temp Files
+~$*
+*.tmp
