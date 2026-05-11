@@ -15,4 +15,4 @@ av
 SpeechRecognition
 moviepy
 nltk
-tornado
+tornado==6.3.3
